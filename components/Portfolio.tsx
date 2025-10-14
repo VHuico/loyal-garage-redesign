@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 const portfolioItems = [
   {
@@ -120,7 +121,7 @@ export default function Portfolio() {
                         {/* Example Images - No Labels */}
                         <div className="relative w-1/2 border-r-2 border-white">
                           <Image
-                            src={item.image1!}
+                            src={getImagePath(item.image1!)}
                             alt={item.alt1!}
                             fill
                             className="object-cover"
@@ -129,7 +130,7 @@ export default function Portfolio() {
                         </div>
                         <div className="relative w-1/2">
                           <Image
-                            src={item.image2!}
+                            src={getImagePath(item.image2!)}
                             alt={item.alt2!}
                             fill
                             className="object-cover"
@@ -142,7 +143,7 @@ export default function Portfolio() {
                         {/* Before/After Images */}
                         <div className="relative w-1/2 border-r-2 border-white">
                           <Image
-                            src={item.beforeImage!}
+                            src={getImagePath(item.beforeImage!)}
                             alt={item.beforeAlt!}
                             fill
                             className="object-cover"
@@ -154,7 +155,7 @@ export default function Portfolio() {
                         </div>
                         <div className="relative w-1/2">
                           <Image
-                            src={item.afterImage!}
+                            src={getImagePath(item.afterImage!)}
                             alt={item.afterAlt!}
                             fill
                             className="object-cover"

@@ -2,6 +2,7 @@
 
 import { Award, Heart, Users, Wrench } from 'lucide-react';
 import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 export default function About() {
   return (
@@ -87,7 +88,7 @@ export default function About() {
           <div className="relative">
             <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/team/AboutMe.jpeg"
+                src={getImagePath("/images/team/AboutMe.jpeg")}
                 alt="Enrique Carrillo - Owner of Loyal Garage"
                 fill
                 className="object-cover"

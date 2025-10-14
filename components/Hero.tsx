@@ -2,6 +2,7 @@
 
 import { Phone, Clock, Shield, Award } from 'lucide-react';
 import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -85,7 +86,7 @@ export default function Hero() {
           <div className="relative hidden lg:block">
             <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/hero/hero.jpeg"
+                src={getImagePath("/images/hero/hero.jpeg")}
                 alt="Professional garage door installation by Enrique Carrillo"
                 fill
                 className="object-cover"
