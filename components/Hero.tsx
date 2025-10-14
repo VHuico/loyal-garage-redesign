@@ -1,6 +1,7 @@
 'use client';
 
 import { Phone, Clock, Shield, Award } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -80,20 +81,17 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Content - Image Placeholder */}
+          {/* Right Content - Hero Image */}
           <div className="relative hidden lg:block">
             <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-              {/* Placeholder - Replace with actual image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="text-8xl mb-4">🚪</div>
-                  <p className="text-2xl font-bold">Professional Garage Door Service</p>
-                  <p className="text-lg mt-2">Add your photo here</p>
-                  <p className="text-sm mt-4 px-8 opacity-90">
-                    Recommended: High-quality photo of a beautiful garage door installation or your team at work
-                  </p>
-                </div>
-              </div>
+              <Image
+                src="/images/hero/hero.jpeg"
+                alt="Professional garage door installation by Enrique Carrillo"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 0vw, 50vw"
+              />
             </div>
 
             {/* Floating Stats */}

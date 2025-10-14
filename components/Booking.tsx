@@ -104,7 +104,7 @@ export default function Booking() {
             {/* Calendly Inline Widget */}
             <div
               className="calendly-inline-widget rounded-lg overflow-hidden"
-              data-url="https://calendly.com/victorhuicochea28/30min?primary_color=f5f56c"
+              data-url="https://calendly.com/victorhuicochea28/30min?primary_color=f0b100"
               style={{ minWidth: '320px', height: '700px' }}
             />
           </div>

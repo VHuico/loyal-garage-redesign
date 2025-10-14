@@ -1,6 +1,7 @@
 'use client';
 
 import { Award, Heart, Users, Wrench } from 'lucide-react';
+import Image from 'next/image';
 
 export default function About() {
   return (
@@ -82,26 +83,16 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Content - Image Placeholder */}
+          {/* Right Content - About Me Photo */}
           <div className="relative">
             <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-              {/* Placeholder - Replace with your photo */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                <div className="text-center text-gray-700 p-8">
-                  <div className="text-8xl mb-4">👤</div>
-                  <p className="text-2xl font-bold mb-4">Your Photo Here</p>
-                  <p className="text-lg mb-4">Add a photo of yourself:</p>
-                  <ul className="text-left inline-block text-base space-y-2">
-                    <li>✓ Working on a garage door</li>
-                    <li>✓ Standing with your tools/van</li>
-                    <li>✓ Professional headshot</li>
-                    <li>✓ On a completed job site</li>
-                  </ul>
-                  <p className="text-sm mt-6 opacity-75">
-                    People like to see who they&apos;re hiring!
-                  </p>
-                </div>
-              </div>
+              <Image
+                src="/images/team/AboutMe.jpeg"
+                alt="Enrique Carrillo - Owner of Loyal Garage"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
 
             {/* Certifications Box */}

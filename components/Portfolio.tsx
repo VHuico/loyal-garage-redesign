@@ -2,55 +2,74 @@
 
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 const portfolioItems = [
   {
     id: 1,
     category: 'Residential Installation',
-    title: 'Modern Steel Garage Door',
-    location: 'West El Paso',
-    beforeAlt: 'Old garage door before installation',
-    afterAlt: 'New modern steel garage door',
+    title: 'Modern Garage Door Replacement',
+    location: 'Austin, TX',
+    image1: '/images/portfolio/workHorizontal3.jpeg',
+    image2: '/images/portfolio/workHorizontal2.jpeg',
+    alt1: 'Modern garage door replacement example 1',
+    alt2: 'Modern garage door replacement example 2',
+    isExample: true,
   },
   {
     id: 2,
-    category: 'Spring Repair',
-    title: 'Emergency Spring Replacement',
-    location: 'East El Paso',
-    beforeAlt: 'Broken garage door spring',
-    afterAlt: 'Repaired garage door spring',
+    category: 'Residential Installation',
+    title: 'Modern Steel Garage Door',
+    location: 'Austin, TX',
+    image1: '/images/portfolio/workVertical.jpeg',
+    image2: '/images/portfolio/workVertical2.jpeg',
+    alt1: 'Modern steel garage door example 1',
+    alt2: 'Modern steel garage door example 2',
+    isExample: true,
   },
   {
     id: 3,
-    category: 'Commercial',
-    title: 'Commercial Roll-Up Door',
-    location: 'Downtown El Paso',
-    beforeAlt: 'Old commercial garage door',
-    afterAlt: 'New commercial roll-up door',
+    category: 'Full Door Replacement',
+    title: 'Complete Damaged Door Replacement',
+    location: 'Austin, TX',
+    beforeImage: '/images/portfolio/Before4.jpeg',
+    afterImage: '/images/portfolio/After4.jpeg',
+    beforeAlt: 'Damaged garage door before replacement',
+    afterAlt: 'Brand new replacement door installed',
+    isExample: false,
   },
   {
     id: 4,
-    category: 'Residential Installation',
-    title: 'Carriage Style Door',
-    location: 'Northeast El Paso',
-    beforeAlt: 'Old garage door',
-    afterAlt: 'Beautiful carriage style door',
+    category: 'Repair & Adjustment',
+    title: 'Garage Door Reframing & Realignment',
+    location: 'Austin, TX',
+    beforeImage: '/images/portfolio/Before5.jpeg',
+    afterImage: '/images/portfolio/After5.jpeg',
+    beforeAlt: 'Misaligned garage door frame',
+    afterAlt: 'Properly reframed and aligned door',
+    isExample: false,
   },
   {
     id: 5,
-    category: 'Repair',
-    title: 'Panel Replacement',
-    location: 'Westside El Paso',
-    beforeAlt: 'Damaged garage door panel',
-    afterAlt: 'Replaced garage door panel',
+    category: 'Modernization',
+    title: 'Outdated to Modern Door Upgrade',
+    location: 'Austin, TX',
+    beforeImage: '/images/portfolio/Before1.jpeg',
+    afterImage: '/images/portfolio/After1.jpeg',
+    beforeAlt: 'Old outdated garage door',
+    afterAlt: 'Modern upgraded garage door',
+    isExample: false,
   },
   {
     id: 6,
-    category: 'Smart Opener',
-    title: 'Wi-Fi Garage Door Opener',
-    location: 'Central El Paso',
-    beforeAlt: 'Old garage door opener',
-    afterAlt: 'New smart opener installation',
+    category: 'Replacement',
+    title: 'Damaged Door Replacement',
+    location: 'Austin, TX',
+    beforeImage: '/images/portfolio/Before3.jpeg',
+    afterImage: '/images/portfolio/After3.jpeg',
+    beforeAlt: 'Severely damaged garage door',
+    afterAlt: 'Brand new replacement door',
+    isExample: false,
   },
 ];
 
@@ -93,27 +112,64 @@ export default function Portfolio() {
                 key={item.id}
                 className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                {/* Before/After Images Placeholder */}
-                <div className="relative h-48 bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
+                {/* Images */}
+                <div className="relative h-64 overflow-hidden">
                   <div className="absolute inset-0 flex">
-                    {/* Before */}
-                    <div className="w-1/2 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center border-r-2 border-white">
-                      <div className="text-center text-white px-2">
-                        <p className="text-xs font-semibold mb-1">BEFORE</p>
-                        <p className="text-xs">{item.beforeAlt}</p>
-                      </div>
-                    </div>
-                    {/* After */}
-                    <div className="w-1/2 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
-                      <div className="text-center text-white px-2">
-                        <p className="text-xs font-semibold mb-1">AFTER</p>
-                        <p className="text-xs">{item.afterAlt}</p>
-                      </div>
-                    </div>
+                    {item.isExample ? (
+                      <>
+                        {/* Example Images - No Labels */}
+                        <div className="relative w-1/2 border-r-2 border-white">
+                          <Image
+                            src={item.image1!}
+                            alt={item.alt1!}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                          />
+                        </div>
+                        <div className="relative w-1/2">
+                          <Image
+                            src={item.image2!}
+                            alt={item.alt2!}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                          />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        {/* Before/After Images */}
+                        <div className="relative w-1/2 border-r-2 border-white">
+                          <Image
+                            src={item.beforeImage!}
+                            alt={item.beforeAlt!}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                          />
+                          <div className="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs font-semibold">
+                            BEFORE
+                          </div>
+                        </div>
+                        <div className="relative w-1/2">
+                          <Image
+                            src={item.afterImage!}
+                            alt={item.afterAlt!}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                          />
+                          <div className="absolute bottom-2 left-2 bg-yellow-500 text-gray-900 px-2 py-1 rounded text-xs font-semibold">
+                            AFTER
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   {/* Category Badge */}
-                  <div className="absolute top-3 left-3 bg-yellow-500 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
+                  <div className="absolute top-3 left-3 bg-yellow-500 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold shadow-lg">
                     {item.category}
                   </div>
                 </div>
