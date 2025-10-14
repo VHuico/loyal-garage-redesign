@@ -67,3 +67,15 @@ input[type="date"]:invalid,
 input[type="time"]:invalid {
   color: #6b7280; /* gray-500 when empty */
 }
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar,
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar,
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}

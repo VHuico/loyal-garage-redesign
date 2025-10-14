@@ -10,11 +10,11 @@ export default function About() {
           {/* Left Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              About <span className="text-yellow-500">Me & My Story</span>
+              About <span className="text-yellow-500">Enrique Carrillo</span>
             </h2>
 
             <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-              Hi, I&apos;m the owner of Loyal Garage. I recently moved to El Paso from Austin,
+              Hi, I&apos;m Enrique Carrillo, owner of Loyal Garage. I recently moved to El Paso from Austin,
               where I spent years mastering the garage door business.
             </p>
 
@@ -25,8 +25,8 @@ export default function About() {
             </p>
 
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              When you hire me, you&apos;re not getting a salesperson or a rotating crew—you get me,
-              someone who stakes their reputation on every job. I&apos;m licensed, insured, and
+              When you hire me, you&apos;re not getting a salesperson or a rotating crew—you get me, Enrique,
+              someone who stakes his reputation on every job. I&apos;m licensed, insured, and
               ready to earn your trust one garage door at a time.
             </p>
 

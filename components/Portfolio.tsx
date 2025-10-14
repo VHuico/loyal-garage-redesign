@@ -56,7 +56,7 @@ const portfolioItems = [
 
 export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3;
+  const itemsPerPage = 2;
   const totalPages = Math.ceil(portfolioItems.length / itemsPerPage);
 
   const nextSlide = () => {
@@ -73,21 +73,21 @@ export default function Portfolio() {
   );
 
   return (
-    <section id="portfolio" className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="py-12 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             Recent <span className="text-yellow-500">Work</span>
           </h2>
-          <p className="text-lg text-gray-600">
-            Examples from my Austin projects • Building my El Paso portfolio
+          <p className="text-gray-600">
+            Examples from Enrique's Austin projects • Building El Paso portfolio
           </p>
         </div>
 
         {/* Carousel */}
         <div className="relative">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {visibleItems.map((item) => (
               <div
                 key={item.id}

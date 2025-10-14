@@ -31,8 +31,8 @@ export default function ServiceArea() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          {/* Service Info Cards */}
+        {/* Service Info Cards - Desktop: 3 cards, Mobile: Single merged card */}
+        <div className="hidden md:grid md:grid-cols-3 gap-6 mb-12">
           <div className="bg-white rounded-xl p-6 shadow-lg text-center">
             <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <MapPin className="text-white" size={32} />
@@ -55,6 +55,36 @@ export default function ServiceArea() {
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Local Service</h3>
             <p className="text-gray-600">El Paso Based</p>
+          </div>
+        </div>
+
+        {/* Mobile: Merged card */}
+        <div className="md:hidden bg-white rounded-xl p-6 shadow-lg mb-8">
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <MapPin className="text-white" size={24} />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900">25+ Mile Service Radius</h3>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <Phone className="text-white" size={24} />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900">Quick Response & Flexible Scheduling</h3>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white text-xl font-bold">EP</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900">Local El Paso Based Service</h3>
+              </div>
+            </div>
           </div>
         </div>
 

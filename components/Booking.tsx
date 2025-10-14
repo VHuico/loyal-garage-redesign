@@ -235,39 +235,39 @@ export default function Booking() {
                 </select>
               </div>
 
-              {/* Date & Time */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="date" className="block text-gray-700 font-semibold mb-2">
-                    Preferred Date
-                  </label>
-                  <input
-                    type="date"
-                    id="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="time" className="block text-gray-700 font-semibold mb-2">
-                    Preferred Time
-                  </label>
-                  <select
-                    id="time"
-                    name="time"
-                    value={formData.time}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  >
-                    <option value="">Select time...</option>
-                    <option value="morning">Morning (7 AM - 12 PM)</option>
-                    <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
-                    <option value="evening">Evening (5 PM - 7 PM)</option>
-                    <option value="asap">As soon as possible</option>
-                  </select>
-                </div>
+              {/* Date */}
+              <div>
+                <label htmlFor="date" className="block text-gray-700 font-semibold mb-2">
+                  Preferred Date
+                </label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                />
+              </div>
+
+              {/* Time */}
+              <div>
+                <label htmlFor="time" className="block text-gray-700 font-semibold mb-2">
+                  Preferred Time
+                </label>
+                <select
+                  id="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                >
+                  <option value="">Select time...</option>
+                  <option value="morning">Morning (7 AM - 12 PM)</option>
+                  <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                  <option value="evening">Evening (5 PM - 7 PM)</option>
+                  <option value="asap">As soon as possible</option>
+                </select>
               </div>
 
               {/* Message */}

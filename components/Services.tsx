@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Wrench, Settings, Clock, Home, Building, Zap } from 'lucide-react';
 
 const services = [
@@ -48,6 +49,8 @@ const services = [
 ];
 
 export default function Services() {
+  const [activeTab, setActiveTab] = useState(0);
+
   const scrollToBooking = () => {
     const element = document.getElementById('booking');
     if (element) {
@@ -55,75 +58,101 @@ export default function Services() {
     }
   };
 
+  const activeService = services[activeTab];
+  const Icon = activeService.icon;
+
   return (
-    <section id="services" className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-12 bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             <span className="text-yellow-500">Services</span> Offered
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-gray-600">
             Professional garage door solutions for El Paso homes and businesses
           </p>
         </div>
 
-        {/* Services Grid - Compact */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
+        {/* Tab Navigation - Wraps on desktop, scrolls on mobile */}
+        <div className="relative mb-6">
+          <div className="md:flex md:flex-wrap md:justify-center flex overflow-x-auto gap-2 pb-2 md:pb-0 snap-x snap-mandatory scrollbar-hide">
+            {services.map((service, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveTab(index)}
+                className={`flex-shrink-0 px-4 py-2 rounded-lg font-semibold text-sm transition-all snap-center ${
+                  activeTab === index
+                    ? 'bg-yellow-500 text-gray-900 shadow-md'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {service.title.replace('Garage Door ', '')}
+              </button>
+            ))}
+          </div>
+          {/* Scroll indicators - mobile only */}
+          <div className="md:hidden flex justify-center gap-1 mt-2">
+            {services.map((_, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-500 hover:shadow-lg transition-all duration-300 group"
-              >
-                {/* Icon */}
-                <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-500 transition-colors">
-                  <Icon className="text-yellow-500 group-hover:text-white transition-colors" size={24} />
-                </div>
+                className={`h-1 rounded-full transition-all ${
+                  index === activeTab ? 'w-6 bg-yellow-500' : 'w-1 bg-gray-300'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
 
-                {/* Content */}
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-sm text-gray-600 mb-4">{service.description}</p>
+        {/* Active Service Content */}
+        <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 md:p-10 shadow-lg">
+          <div className="flex items-start gap-6 mb-6">
+            <div className="w-16 h-16 bg-yellow-500 rounded-xl flex items-center justify-center flex-shrink-0">
+              <Icon className="text-white" size={32} />
+            </div>
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                {activeService.title}
+              </h3>
+              <p className="text-gray-600">{activeService.description}</p>
+            </div>
+          </div>
 
-                {/* Features - Only show first 3 */}
-                <ul className="space-y-1 mb-4">
-                  {service.features.slice(0, 3).map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700 text-sm">
-                      <span className="text-yellow-500 text-xs mt-0.5">✓</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Price & CTA */}
-                <div className="pt-4 border-t border-gray-200 flex items-center justify-between">
-                  <p className="text-lg font-bold text-gray-900">{service.price}</p>
-                  <button
-                    onClick={scrollToBooking}
-                    className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm transition-all"
-                  >
-                    Quote
-                  </button>
-                </div>
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-2 gap-3 mb-6">
+            {activeService.features.map((feature, idx) => (
+              <div key={idx} className="flex items-start gap-2 text-gray-700">
+                <span className="text-yellow-500 mt-1 font-bold">✓</span>
+                <span>{feature}</span>
               </div>
-            );
-          })}
+            ))}
+          </div>
+
+          {/* Price & CTA */}
+          <div className="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <p className="text-sm text-gray-600 mb-1">Starting at</p>
+              <p className="text-3xl font-bold text-gray-900">{activeService.price}</p>
+            </div>
+            <button
+              onClick={scrollToBooking}
+              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-8 py-3 rounded-lg font-bold transition-all shadow-md hover:shadow-lg"
+            >
+              Get Free Quote
+            </button>
+          </div>
         </div>
 
         {/* Bottom CTA - Compact */}
-        <div className="mt-10 text-center bg-gray-50 rounded-xl p-6">
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">
-            Not sure which service you need?
-          </h3>
-          <p className="text-gray-600 mb-4">
-            Call for a free consultation and honest assessment
+        <div className="mt-8 text-center bg-gray-50 rounded-xl p-6">
+          <p className="text-gray-700 mb-3">
+            Not sure which service you need? <strong>Call Enrique directly</strong>
           </p>
           <a
             href="tel:+19159554928"
             className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-6 py-3 rounded-lg font-bold transition-all"
           >
-            Call (915) 955-4928
+            (915) 955-4928
           </a>
         </div>
       </div>
