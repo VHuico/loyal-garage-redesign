@@ -23,4 +23,23 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Ensure no horizontal overflow */
+html {
+  overflow-x: hidden;
+}
+
+/* Improve form placeholder contrast for better mobile visibility */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: #6b7280 !important; /* gray-500 */
+  opacity: 1;
+}
+
+/* Specific styling for select dropdowns */
+select option:first-child {
+  color: #6b7280;
 }

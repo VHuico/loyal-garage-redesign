@@ -105,7 +105,7 @@ export default function About() {
             </div>
 
             {/* Certifications Box */}
-            <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-xl max-w-xs">
+            <div className="absolute -bottom-6 left-4 right-4 md:-bottom-8 md:-left-8 md:right-auto bg-white p-6 rounded-xl shadow-xl md:max-w-xs">
               <h4 className="font-bold text-gray-900 mb-3">Credentials</h4>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li>✓ Texas State Licensed</li>

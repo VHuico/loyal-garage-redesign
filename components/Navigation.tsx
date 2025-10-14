@@ -65,7 +65,7 @@ export default function Navigation() {
               Contact
             </button>
             <a
-              href="tel:+1234567890"
+              href="tel:+19159554928"
               className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-6 py-3 rounded-lg font-bold transition-colors"
             >
               <Phone size={18} />

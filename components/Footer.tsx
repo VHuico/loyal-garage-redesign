@@ -28,7 +28,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/people/LOYAL-Garage-Doors/100027792260015/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-yellow-500 rounded-full flex items-center justify-center transition-colors"
@@ -37,22 +37,13 @@ export default function Footer() {
                 <Facebook size={20} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/loyalgaragedoors/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-yellow-500 rounded-full flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
-              </a>
-              <a
-                href="https://yelp.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-yellow-500 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Yelp"
-              >
-                <FaYelp size={20} />
               </a>
             </div>
           </div>
@@ -124,16 +115,16 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="text-yellow-500 flex-shrink-0 mt-1" size={18} />
                 <div>
-                  <a href="tel:+19155550123" className="text-gray-400 hover:text-yellow-500 transition-colors">
-                    (915) 555-0123
+                  <a href="tel:+19159554928" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    (915) 955-4928
                   </a>
                   <p className="text-sm text-gray-500">24/7 Emergency</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="text-yellow-500 flex-shrink-0 mt-1" size={18} />
-                <a href="mailto:info@loyalgarage.com" className="text-gray-400 hover:text-yellow-500 transition-colors">
-                  info@loyalgarage.com
+                <a href="mailto:loyalgarageatx@gmail.com" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                  loyalgarageatx@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -194,10 +185,10 @@ export default function Footer() {
               Ready to get started? Let&apos;s talk about your garage door needs.
             </p>
             <a
-              href="tel:+19155550123"
+              href="tel:+19159554928"
               className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-lg font-bold transition-colors"
             >
-              Call: (915) 555-0123
+              Call: (915) 955-4928
             </a>
           </div>
         </div>

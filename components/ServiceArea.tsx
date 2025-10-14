@@ -1,6 +1,6 @@
 'use client';
 
-import { MapPin } from 'lucide-react';
+import { MapPin, Phone } from 'lucide-react';
 
 const areas = [
   'West El Paso',
@@ -21,76 +21,68 @@ export default function ServiceArea() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Proudly Serving <span className="text-yellow-500">El Paso, TX</span>
-            </h2>
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Serving <span className="text-yellow-500">El Paso, TX</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Bringing quality garage door service to neighborhoods across El Paso
+          </p>
+        </div>
 
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              We provide fast, reliable garage door services throughout El Paso and surrounding areas.
-              As a local business, we understand the unique needs of our community and are committed
-              to being there when you need us.
-            </p>
-
-            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded mb-8">
-              <p className="text-yellow-900 font-semibold mb-2">
-                Fast Response Times Across El Paso
-              </p>
-              <p className="text-yellow-800">
-                Same-day service available in most areas. Emergency service available 24/7.
-              </p>
+        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+          {/* Service Info Cards */}
+          <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+            <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin className="text-white" size={32} />
             </div>
-
-            {/* Areas Grid */}
-            <div className="grid grid-cols-2 gap-3">
-              {areas.map((area, index) => (
-                <div key={index} className="flex items-center gap-2 text-gray-700">
-                  <MapPin className="text-yellow-500 flex-shrink-0" size={18} />
-                  <span className="font-medium">{area}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-8 text-gray-600">
-              Don&apos;t see your area listed?{' '}
-              <a href="#contact" className="text-yellow-500 hover:text-yellow-600 font-semibold">
-                Contact us
-              </a>{' '}
-              to check if we service your location!
-            </p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">25+ Miles</h3>
+            <p className="text-gray-600">Service Radius</p>
           </div>
 
-          {/* Right Content - Map Placeholder */}
-          <div className="relative">
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              {/* Map Placeholder */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center">
-                <div className="text-center text-gray-700 p-8">
-                  <MapPin className="mx-auto mb-4 text-yellow-600" size={80} />
-                  <p className="text-2xl font-bold mb-4">Service Area Map</p>
-                  <p className="text-lg mb-4">Embed Google Maps or custom map here</p>
-                  <div className="bg-white/70 backdrop-blur-sm p-6 rounded-lg inline-block">
-                    <p className="text-sm font-semibold mb-3">Integration Options:</p>
-                    <ul className="text-left text-sm space-y-2">
-                      <li>• Google Maps embed (free)</li>
-                      <li>• Mapbox custom map</li>
-                      <li>• Static map image</li>
-                      <li>• Interactive area selector</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+          <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+            <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Phone className="text-white" size={32} />
             </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Quick Response</h3>
+            <p className="text-gray-600">Flexible Scheduling</p>
+          </div>
 
-            {/* Service Radius Badge */}
-            <div className="absolute -top-6 -right-6 bg-yellow-500 text-gray-900 p-6 rounded-full shadow-xl">
-              <div className="text-center">
-                <div className="text-3xl font-bold">25+</div>
-                <div className="text-sm font-semibold">Mile Radius</div>
-              </div>
+          <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+            <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-white text-2xl font-bold">EP</span>
             </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Local Service</h3>
+            <p className="text-gray-600">El Paso Based</p>
+          </div>
+        </div>
+
+        {/* Areas List */}
+        <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            Areas We Serve
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {areas.map((area, index) => (
+              <div key={index} className="flex items-center gap-2 text-gray-700">
+                <MapPin className="text-yellow-500 flex-shrink-0" size={18} />
+                <span className="font-medium text-sm">{area}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+            <p className="text-gray-600 mb-4">
+              Don&apos;t see your area listed? Call to check if I service your location!
+            </p>
+            <a
+              href="tel:+19159554928"
+              className="inline-flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-6 py-3 rounded-lg font-bold transition-all"
+            >
+              <Phone size={20} />
+              (915) 955-4928
+            </a>
           </div>
         </div>
       </div>

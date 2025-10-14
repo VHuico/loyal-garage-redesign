@@ -107,10 +107,10 @@ export default function FAQ() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+19155550123"
+              href="tel:+19159554928"
               className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-8 py-3 rounded-lg font-bold transition-all inline-block"
             >
-              Call (915) 555-0123
+              Call (915) 955-4928
             </a>
             <a
               href="#booking"

@@ -65,7 +65,7 @@ export default function Hero() {
                 className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <Phone size={22} />
-                (915) 555-0123
+                (915) 955-4928
               </a>
             </div>
 

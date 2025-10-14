@@ -17,7 +17,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Loyal Garage | Professional Garage Door Service El Paso, TX",
-  description: "New to El Paso, bringing years of garage door expertise from Austin. Licensed & insured one-person operation offering honest, quality service. Personal attention on every job. Call (915) 555-0123 for a free quote!",
+  description: "New to El Paso, bringing years of garage door expertise from Austin. Licensed & insured one-person operation offering honest, quality service. Personal attention on every job. Call (915) 955-4928 for a free quote!",
   keywords: [
     "garage door repair El Paso",
     "garage door installation El Paso",

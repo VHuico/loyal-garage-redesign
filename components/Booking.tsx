@@ -85,8 +85,8 @@ export default function Booking() {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900 mb-1">Phone</h4>
-                  <a href="tel:+19155550123" className="text-yellow-500 hover:text-yellow-600 text-lg font-semibold">
-                    (915) 555-0123
+                  <a href="tel:+19159554928" className="text-yellow-500 hover:text-yellow-600 text-lg font-semibold">
+                    (915) 955-4928
                   </a>
                   <p className="text-sm text-gray-600">Call us anytime - 24/7 emergency service</p>
                 </div>
@@ -99,8 +99,8 @@ export default function Booking() {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900 mb-1">Email</h4>
-                  <a href="mailto:info@loyalgarage.com" className="text-yellow-500 hover:text-yellow-600 font-semibold">
-                    info@loyalgarage.com
+                  <a href="mailto:loyalgarageatx@gmailm.com" className="text-yellow-500 hover:text-yellow-600 font-semibold">
+                    loyalgarageatx@gmail.com
                   </a>
                   <p className="text-sm text-gray-600">We&apos;ll respond within 24 hours</p>
                 </div>
@@ -207,7 +207,7 @@ export default function Booking() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  placeholder="(915) 555-0123"
+                  placeholder="(915) 955-4928"
                 />
               </div>
 
