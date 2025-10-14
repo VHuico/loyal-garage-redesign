@@ -81,7 +81,7 @@ export default function Portfolio() {
             Recent <span className="text-yellow-500">Work</span>
           </h2>
           <p className="text-gray-600">
-            Examples from Enrique's Austin projects • Building El Paso portfolio
+            Examples from Enrique&apos;s Austin projects • Building El Paso portfolio
           </p>
         </div>
 

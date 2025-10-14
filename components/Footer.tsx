@@ -1,7 +1,6 @@
 'use client';
 
 import { Phone, Mail, MapPin, Facebook, Instagram, Clock } from 'lucide-react';
-import { FaYelp } from 'react-icons/fa';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
