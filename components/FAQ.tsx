@@ -40,10 +40,6 @@ const faqs = [
     question: 'Do you offer financing options?',
     answer: 'Yes, we offer flexible financing options for larger projects like new installations. Contact us to learn more about our payment plans and current promotions.',
   },
-  {
-    question: 'Are you licensed and insured?',
-    answer: 'Yes! Loyal Garage is fully licensed, bonded, and insured. We\'re also a BBB accredited business with an A+ rating, giving you complete peace of mind.',
-  },
 ];
 
 export default function FAQ() {
