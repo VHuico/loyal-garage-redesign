@@ -162,7 +162,6 @@ export default function Footer() {
           <div className="md:flex md:items-center md:justify-between text-center md:text-left">
             <div className="text-gray-400 text-sm">
               <p>&copy; {currentYear} Loyal Garage. All rights reserved.</p>
-              <p className="mt-1">Licensed, Bonded & Insured | Texas License #XXXXX</p>
             </div>
             <div className="mt-4 md:mt-0">
               <ul className="flex flex-wrap justify-center md:justify-end gap-6 text-sm text-gray-400">
