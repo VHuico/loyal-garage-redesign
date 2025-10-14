@@ -234,96 +234,92 @@ export default function Portfolio() {
       {/* Modal/Lightbox */}
       {selectedItem && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overflow-y-auto"
+          className="fixed inset-0 bg-black/70 z-50 overflow-y-auto"
           onClick={closeModal}
         >
-          <div
-            className="relative max-w-6xl w-full bg-white rounded-2xl overflow-hidden my-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={closeModal}
-              className="sticky top-4 float-right mr-4 mt-4 z-50 bg-white hover:bg-gray-100 text-gray-900 p-3 rounded-full shadow-xl transition-all"
-              aria-label="Close"
+          <div className="min-h-screen flex items-center justify-center p-2 md:p-4">
+            <div
+              className="relative max-w-6xl w-full bg-white rounded-lg md:rounded-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X size={28} />
-            </button>
-
-            {/* Header */}
-            <div className="bg-gray-900 text-white p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
-                  {selectedItem.category}
-                </span>
+              {/* Close Button - Inside Modal */}
+              <button
+                onClick={closeModal}
+                className="absolute top-2 right-2 md:top-4 md:right-4 z-10 bg-white/90 hover:bg-white text-gray-900 p-2 md:p-3 rounded-full shadow-xl transition-all"
+                aria-label="Close"
+              >
+                <X size={24} className="md:w-7 md:h-7" />
+              </button>
+              {/* Header - Compact on Mobile */}
+              <div className="bg-gray-900 text-white p-4 md:p-6">
+                <div className="flex items-center gap-2 md:gap-3 mb-2">
+                  <span className="bg-yellow-500 text-gray-900 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold">
+                    {selectedItem.category}
+                  </span>
+                </div>
+                <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-2">{selectedItem.title}</h3>
+                <p className="text-gray-300 text-sm md:text-base flex items-center gap-1">
+                  <span className="text-yellow-500">📍</span>
+                  {selectedItem.location}
+                </p>
               </div>
-              <h3 className="text-2xl font-bold mb-2">{selectedItem.title}</h3>
-              <p className="text-gray-300 flex items-center gap-1">
-                <span className="text-yellow-500">📍</span>
-                {selectedItem.location}
-              </p>
-            </div>
 
-            {/* Enlarged Images */}
-            <div className="relative bg-gray-100">
-              <div className="flex flex-col md:flex-row">
-                {selectedItem.isExample ? (
-                  <>
-                    {/* Example Images */}
-                    <div className="relative w-full md:w-1/2 h-[300px] md:h-[600px]">
-                      <Image
-                        src={getImagePath(selectedItem.image1!)}
-                        alt={selectedItem.alt1!}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
-                    <div className="relative w-full md:w-1/2 h-[300px] md:h-[600px] border-t md:border-t-0 md:border-l-2 border-white">
-                      <Image
-                        src={getImagePath(selectedItem.image2!)}
-                        alt={selectedItem.alt2!}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    {/* Before/After Images */}
-                    <div className="relative w-full md:w-1/2 h-[300px] md:h-[600px]">
-                      <Image
-                        src={getImagePath(selectedItem.beforeImage!)}
-                        alt={selectedItem.beforeAlt!}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                      <div className="absolute bottom-4 left-4 bg-black/70 text-white px-4 py-2 rounded text-sm font-semibold">
-                        BEFORE
+              {/* Enlarged Images - Smaller on Mobile */}
+              <div className="relative bg-gray-100">
+                <div className="flex flex-col md:flex-row">
+                  {selectedItem.isExample ? (
+                    <>
+                      {/* Example Images */}
+                      <div className="relative w-full md:w-1/2 h-[250px] md:h-[600px]">
+                        <Image
+                          src={getImagePath(selectedItem.image1!)}
+                          alt={selectedItem.alt1!}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
                       </div>
-                    </div>
-                    <div className="relative w-full md:w-1/2 h-[300px] md:h-[600px] border-t md:border-t-0 md:border-l-2 border-white">
-                      <Image
-                        src={getImagePath(selectedItem.afterImage!)}
-                        alt={selectedItem.afterAlt!}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                      <div className="absolute bottom-4 left-4 bg-yellow-500 text-gray-900 px-4 py-2 rounded text-sm font-semibold">
-                        AFTER
+                      <div className="relative w-full md:w-1/2 h-[250px] md:h-[600px] border-t md:border-t-0 md:border-l-2 border-white">
+                        <Image
+                          src={getImagePath(selectedItem.image2!)}
+                          alt={selectedItem.alt2!}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
                       </div>
-                    </div>
-                  </>
-                )}
+                    </>
+                  ) : (
+                    <>
+                      {/* Before/After Images */}
+                      <div className="relative w-full md:w-1/2 h-[250px] md:h-[600px]">
+                        <Image
+                          src={getImagePath(selectedItem.beforeImage!)}
+                          alt={selectedItem.beforeAlt!}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 bg-black/70 text-white px-2 md:px-4 py-1 md:py-2 rounded text-xs md:text-sm font-semibold">
+                          BEFORE
+                        </div>
+                      </div>
+                      <div className="relative w-full md:w-1/2 h-[250px] md:h-[600px] border-t md:border-t-0 md:border-l-2 border-white">
+                        <Image
+                          src={getImagePath(selectedItem.afterImage!)}
+                          alt={selectedItem.afterAlt!}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 bg-yellow-500 text-gray-900 px-2 md:px-4 py-1 md:py-2 rounded text-xs md:text-sm font-semibold">
+                          AFTER
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-
-            {/* Footer */}
-            <div className="p-6 bg-white text-center">
-              <p className="text-gray-600">Click outside or press the X to close</p>
             </div>
           </div>
         </div>
