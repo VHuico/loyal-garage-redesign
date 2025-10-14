@@ -56,85 +56,75 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our <span className="text-yellow-500">Services</span>
+        <div className="text-center mb-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+            <span className="text-yellow-500">Services</span> Offered
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive garage door solutions for homes and businesses in El Paso, TX
+          <p className="text-lg text-gray-600">
+            Professional garage door solutions for El Paso homes and businesses
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services Grid - Compact */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <div
                 key={index}
-                className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-yellow-500 hover:shadow-xl transition-all duration-300 group"
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-500 hover:shadow-lg transition-all duration-300 group"
               >
                 {/* Icon */}
-                <div className="w-16 h-16 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors">
-                  <Icon className="text-yellow-500 group-hover:text-white transition-colors" size={32} />
+                <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-500 transition-colors">
+                  <Icon className="text-yellow-500 group-hover:text-white transition-colors" size={24} />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                <p className="text-sm text-gray-600 mb-4">{service.description}</p>
 
-                {/* Features */}
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700">
-                      <span className="text-yellow-500 mt-1">✓</span>
+                {/* Features - Only show first 3 */}
+                <ul className="space-y-1 mb-4">
+                  {service.features.slice(0, 3).map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-gray-700 text-sm">
+                      <span className="text-yellow-500 text-xs mt-0.5">✓</span>
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Price */}
-                <div className="mb-6 pb-6 border-b border-gray-200">
-                  <p className="text-2xl font-bold text-gray-900">{service.price}</p>
+                {/* Price & CTA */}
+                <div className="pt-4 border-t border-gray-200 flex items-center justify-between">
+                  <p className="text-lg font-bold text-gray-900">{service.price}</p>
+                  <button
+                    onClick={scrollToBooking}
+                    className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm transition-all"
+                  >
+                    Quote
+                  </button>
                 </div>
-
-                {/* CTA */}
-                <button
-                  onClick={scrollToBooking}
-                  className="w-full bg-gray-900 hover:bg-yellow-500 text-white hover:text-gray-900 py-3 rounded-lg font-semibold transition-all"
-                >
-                  Get Quote
-                </button>
               </div>
             );
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center bg-gray-50 rounded-2xl p-8 md:p-12">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">
+        {/* Bottom CTA - Compact */}
+        <div className="mt-10 text-center bg-gray-50 rounded-xl p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">
             Not sure which service you need?
           </h3>
-          <p className="text-xl text-gray-600 mb-8">
-            Contact us for a free consultation and honest assessment
+          <p className="text-gray-600 mb-4">
+            Call for a free consultation and honest assessment
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={scrollToBooking}
-              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg transition-all"
-            >
-              Schedule Free Inspection
-            </button>
-            <a
-              href="tel:+19159554928"
-              className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg border-2 border-gray-200 transition-all"
-            >
-              Call (915) 955-4928
-            </a>
-          </div>
+          <a
+            href="tel:+19159554928"
+            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-6 py-3 rounded-lg font-bold transition-all"
+          >
+            Call (915) 955-4928
+          </a>
         </div>
       </div>
     </section>

@@ -75,7 +75,7 @@ export default function WhyChooseUs() {
             <div className="text-gray-300">to El Paso</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-yellow-500 mb-2">Years</div>
+            <div className="text-4xl font-bold text-yellow-500 mb-2">5+ Years</div>
             <div className="text-gray-300">of Experience</div>
           </div>
           <div className="text-center">

@@ -33,13 +33,37 @@ html {
 
 /* Improve form placeholder contrast for better mobile visibility */
 input::placeholder,
-textarea::placeholder,
-select::placeholder {
+textarea::placeholder {
   color: #6b7280 !important; /* gray-500 */
   opacity: 1;
 }
 
-/* Specific styling for select dropdowns */
-select option:first-child {
-  color: #6b7280;
+/* Fix select dropdown default option color */
+select {
+  color: #374151; /* gray-700 */
+}
+
+select option[value=""] {
+  color: #6b7280; /* gray-500 for placeholder option */
+}
+
+select option:not([value=""]) {
+  color: #111827; /* gray-900 for actual options */
+}
+
+/* Make select text darker when an option is selected */
+select:valid {
+  color: #111827; /* gray-900 */
+}
+
+/* Fix date and time input visibility */
+input[type="date"],
+input[type="time"] {
+  color: #374151; /* gray-700 */
+}
+
+/* Date/time input placeholder state */
+input[type="date"]:invalid,
+input[type="time"]:invalid {
+  color: #6b7280; /* gray-500 when empty */
 }

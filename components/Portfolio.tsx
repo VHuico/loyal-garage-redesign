@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const portfolioItems = [
   {
@@ -53,97 +54,111 @@ const portfolioItems = [
   },
 ];
 
-const categories = ['All', 'Residential Installation', 'Repair', 'Commercial', 'Smart Opener', 'Spring Repair'];
-
 export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(portfolioItems.length / itemsPerPage);
 
-  const filteredItems = activeCategory === 'All'
-    ? portfolioItems
-    : portfolioItems.filter(item => item.category === activeCategory);
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
+  const visibleItems = portfolioItems.slice(
+    currentIndex * itemsPerPage,
+    (currentIndex + 1) * itemsPerPage
+  );
 
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
+    <section id="portfolio" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our <span className="text-yellow-500">Work</span>
+            Recent <span className="text-yellow-500">Work</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See the quality of our garage door installations and repairs throughout El Paso
+          <p className="text-lg text-gray-600">
+            Examples from my Austin projects • Building my El Paso portfolio
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all ${
-                activeCategory === category
-                  ? 'bg-yellow-500 text-gray-900'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Portfolio Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
-            >
-              {/* Before/After Images Placeholder */}
-              <div className="relative h-64 bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
-                <div className="absolute inset-0 flex">
-                  {/* Before */}
-                  <div className="w-1/2 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center border-r-2 border-white">
-                    <div className="text-center text-white">
-                      <p className="text-sm font-semibold mb-2">BEFORE</p>
-                      <p className="text-xs px-4">{item.beforeAlt}</p>
+        {/* Carousel */}
+        <div className="relative">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {visibleItems.map((item) => (
+              <div
+                key={item.id}
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                {/* Before/After Images Placeholder */}
+                <div className="relative h-48 bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
+                  <div className="absolute inset-0 flex">
+                    {/* Before */}
+                    <div className="w-1/2 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center border-r-2 border-white">
+                      <div className="text-center text-white px-2">
+                        <p className="text-xs font-semibold mb-1">BEFORE</p>
+                        <p className="text-xs">{item.beforeAlt}</p>
+                      </div>
+                    </div>
+                    {/* After */}
+                    <div className="w-1/2 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
+                      <div className="text-center text-white px-2">
+                        <p className="text-xs font-semibold mb-1">AFTER</p>
+                        <p className="text-xs">{item.afterAlt}</p>
+                      </div>
                     </div>
                   </div>
-                  {/* After */}
-                  <div className="w-1/2 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <p className="text-sm font-semibold mb-2">AFTER</p>
-                      <p className="text-xs px-4">{item.afterAlt}</p>
-                    </div>
+
+                  {/* Category Badge */}
+                  <div className="absolute top-3 left-3 bg-yellow-500 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
+                    {item.category}
                   </div>
                 </div>
 
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4 bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
-                  {item.category}
+                {/* Content */}
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
+                  <p className="text-sm text-gray-600 flex items-center gap-1">
+                    <span className="text-yellow-500">📍</span>
+                    {item.location}
+                  </p>
                 </div>
               </div>
+            ))}
+          </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 flex items-center gap-2">
-                  <span className="text-yellow-500">📍</span>
-                  {item.location}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white hover:bg-yellow-500 text-gray-900 p-3 rounded-full shadow-lg transition-all z-10"
+            aria-label="Previous"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white hover:bg-yellow-500 text-gray-900 p-3 rounded-full shadow-lg transition-all z-10"
+            aria-label="Next"
+          >
+            <ChevronRight size={24} />
+          </button>
 
-        {/* Note for Business Owner */}
-        <div className="mt-12 bg-blue-50 border-l-4 border-blue-500 p-6 rounded">
-          <p className="text-blue-900 font-semibold mb-2">📸 For the Business Owner:</p>
-          <p className="text-blue-800">
-            Replace these placeholder images with real before/after photos of your actual work.
-            High-quality photos showing the transformation will greatly increase customer trust and conversions.
-            Store images in the <code className="bg-blue-100 px-2 py-1 rounded">public/images/portfolio/</code> folder.
-          </p>
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-6">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentIndex ? 'bg-yellow-500 w-8' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
