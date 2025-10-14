@@ -63,7 +63,7 @@ export default function Hero() {
                 Book Online Now
               </button>
               <a
-                href="tel:+1234567890"
+                href="tel:+19159554928"
                 className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <Phone size={22} />

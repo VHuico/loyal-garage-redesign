@@ -59,7 +59,7 @@ export default function Navigation() {
               About Us
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('booking')}
               className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
             >
               Contact
@@ -114,13 +114,13 @@ export default function Navigation() {
               About Us
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('booking')}
               className="block w-full text-left py-3 text-gray-700 hover:text-yellow-500 font-medium"
             >
               Contact
             </button>
             <a
-              href="tel:+1234567890"
+              href="tel:+19159554928"
               className="flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-6 py-3 rounded-lg font-bold transition-colors mt-4"
             >
               <Phone size={18} />

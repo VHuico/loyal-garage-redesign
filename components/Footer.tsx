@@ -153,7 +153,7 @@ export default function Footer() {
             <div className="text-gray-400 text-sm">
               <p>&copy; {currentYear} Loyal Garage. All rights reserved.</p>
             </div>
-            <div className="mt-4 md:mt-0">
+            {/* <div className="mt-4 md:mt-0">
               <ul className="flex flex-wrap justify-center md:justify-end gap-6 text-sm text-gray-400">
                 <li>
                   <a href="#" className="hover:text-yellow-500 transition-colors">
@@ -171,7 +171,7 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Image from 'next/image';
 import { getImagePath } from '@/lib/utils';
 
@@ -76,6 +76,7 @@ const portfolioItems = [
 
 export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedItem, setSelectedItem] = useState<typeof portfolioItems[0] | null>(null);
   const itemsPerPage = 2;
   const totalPages = Math.ceil(portfolioItems.length / itemsPerPage);
 
@@ -85,6 +86,16 @@ export default function Portfolio() {
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
+  const openModal = (item: typeof portfolioItems[0]) => {
+    setSelectedItem(item);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setSelectedItem(null);
+    document.body.style.overflow = 'unset';
   };
 
   const visibleItems = portfolioItems.slice(
@@ -111,7 +122,8 @@ export default function Portfolio() {
             {visibleItems.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                onClick={() => openModal(item)}
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
                 {/* Images */}
                 <div className="relative h-64 overflow-hidden">
@@ -218,6 +230,104 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
+
+      {/* Modal/Lightbox */}
+      {selectedItem && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overflow-y-auto"
+          onClick={closeModal}
+        >
+          <div
+            className="relative max-w-6xl w-full bg-white rounded-2xl overflow-hidden my-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="sticky top-4 float-right mr-4 mt-4 z-50 bg-white hover:bg-gray-100 text-gray-900 p-3 rounded-full shadow-xl transition-all"
+              aria-label="Close"
+            >
+              <X size={28} />
+            </button>
+
+            {/* Header */}
+            <div className="bg-gray-900 text-white p-6">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
+                  {selectedItem.category}
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold mb-2">{selectedItem.title}</h3>
+              <p className="text-gray-300 flex items-center gap-1">
+                <span className="text-yellow-500">📍</span>
+                {selectedItem.location}
+              </p>
+            </div>
+
+            {/* Enlarged Images */}
+            <div className="relative bg-gray-100">
+              <div className="flex flex-col md:flex-row">
+                {selectedItem.isExample ? (
+                  <>
+                    {/* Example Images */}
+                    <div className="relative w-full md:w-1/2 h-[300px] md:h-[600px]">
+                      <Image
+                        src={getImagePath(selectedItem.image1!)}
+                        alt={selectedItem.alt1!}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div className="relative w-full md:w-1/2 h-[300px] md:h-[600px] border-t md:border-t-0 md:border-l-2 border-white">
+                      <Image
+                        src={getImagePath(selectedItem.image2!)}
+                        alt={selectedItem.alt2!}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Before/After Images */}
+                    <div className="relative w-full md:w-1/2 h-[300px] md:h-[600px]">
+                      <Image
+                        src={getImagePath(selectedItem.beforeImage!)}
+                        alt={selectedItem.beforeAlt!}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <div className="absolute bottom-4 left-4 bg-black/70 text-white px-4 py-2 rounded text-sm font-semibold">
+                        BEFORE
+                      </div>
+                    </div>
+                    <div className="relative w-full md:w-1/2 h-[300px] md:h-[600px] border-t md:border-t-0 md:border-l-2 border-white">
+                      <Image
+                        src={getImagePath(selectedItem.afterImage!)}
+                        alt={selectedItem.afterAlt!}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <div className="absolute bottom-4 left-4 bg-yellow-500 text-gray-900 px-4 py-2 rounded text-sm font-semibold">
+                        AFTER
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="p-6 bg-white text-center">
+              <p className="text-gray-600">Click outside or press the X to close</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
